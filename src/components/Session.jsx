@@ -1,7 +1,7 @@
 import React from "react";
 
 const Session = ({ data }) => {
-  console.log(data);
+  /*console.log(data);*/
   return <div></div>;
 };
 

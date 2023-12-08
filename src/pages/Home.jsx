@@ -1,17 +1,21 @@
-import ApiManage from "../hook/ManageApi";
-import User from "../components/User";
-import Activity from "../components/Activity";
-import Score from "../components/Score";
-import Session from "../components/Session";
+import React from "react";
+import { Link } from "react-router-dom";
+import FormatData from "../hook/FormatData";
 
 const Home = () => {
-  const { userData, activityData, scoreData, sessionsData } = ApiManage();
+  const { formattedUser } = FormatData();
+
   return (
-    <div>
-      <User data={userData} />
-      <Activity data={activityData} />
-      <Score data={scoreData} />
-      <Session data={sessionsData} />
+    <div className="button-container">
+      {formattedUser.map((item) => (
+        <div key={item.userId}>
+          {item.userId !== undefined && (
+            <Link to={`/dashboard/${item.userId}`} key={item.userId}>
+              <button className="user-page">{item.firstName}</button>
+            </Link>
+          )}
+        </div>
+      ))}
     </div>
   );
 };

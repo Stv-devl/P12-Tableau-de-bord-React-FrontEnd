@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Error from "./pages/Error";
 import Footer from "./components/Footer";
 import VerticaNav from "./components/VerticalNav";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/dashboard/:id" element={<Dashboard />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
