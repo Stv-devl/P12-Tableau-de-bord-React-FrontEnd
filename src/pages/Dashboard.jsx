@@ -5,14 +5,14 @@ import Session from "../components/Session";
 import ApiManage from "../hook/ManageApi";
 
 const Dashboard = () => {
-  const { datas } = ApiManage();
+  const { user, activity, performance, session } = ApiManage();
 
   return (
     <div>
-      <User data={datas.user} />
-      <Activity data={datas.activity} />
-      <Score data={datas.score} />
-      <Session data={datas.session} />
+      <User data={user} />
+      <Activity data={activity} />
+      <Score data={performance} />
+      <Session data={session} />
     </div>
   );
 };
