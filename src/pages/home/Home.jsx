@@ -1,11 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import ApiManage from "../hook/ManageApi";
-import PropTypes from "prop-types";
+import { DataContext } from "../../data/DataProvider";
 
 const Home = () => {
-  const { unfilteredUser } = ApiManage();
-
-  console.log(unfilteredUser);
+  const { unfilteredUser } = useContext(DataContext);
   const getUsersData = unfilteredUser.user || [];
 
   return (
@@ -29,10 +27,5 @@ const Home = () => {
     </div>
   );
 };
-
-/*
-Home.propTypes = {
-  unfilteredUser: PropTypes.object.isRequired,
-};*/
 
 export default Home;

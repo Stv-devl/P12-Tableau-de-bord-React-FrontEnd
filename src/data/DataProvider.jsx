@@ -1,21 +1,23 @@
-import { useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getDatas } from "../services/apiService";
 import filterWithId from "../utils/filterWithId";
 
-const ManageApi = () => {
+const DataContext = createContext();
+
+const DataProvider = ({ children }) => {
   const { id } = useParams();
   const [profilId, setProfilId] = useState(12);
   const [unfilteredUser, setfilteredUser] = useState({});
   const [datas, setDatas] = useState({
-    user: {},
-    activity: {},
-    performance: {},
-    session: {},
+    user: [],
+    activity: [],
+    performance: [],
+    session: [],
   });
 
   useEffect(() => {
-    setProfilId(parseInt(id, 10));
+    id && setProfilId(parseInt(id, 10));
   }, [id]);
 
   useEffect(() => {
@@ -36,9 +38,10 @@ const ManageApi = () => {
         const unfilteredData = {
           user: inverseRes.length <= 1 ? userRes.concat(inverseRes) : userRes,
         };
+
         //filter data with Id in the util function
         const filteredData = {
-          user: "1" /*filterWithId(userRes, profilId),*/,
+          user: filterWithId(userRes, profilId),
           activity: filterWithId(activityRes, profilId),
           performance: filterWithId(scoreRes, profilId),
           session: filterWithId(sessionsRes, profilId),
@@ -53,9 +56,11 @@ const ManageApi = () => {
     //useEffect at launch and id change
   }, [profilId]);
 
-  const { user, activity, performance, session } = datas;
-
-  return { user, activity, performance, session, unfilteredUser };
+  return (
+    <DataContext.Provider value={{ datas, unfilteredUser }}>
+      {children}
+    </DataContext.Provider>
+  );
 };
 
-export default ManageApi;
+export { DataContext, DataProvider };

@@ -5,7 +5,7 @@ const Banner = () => {
     <header>
       <nav className="horizontale-nav">
         <div className="logo-wrapper">
-          <img src="" alt="" />
+          <img src="./logo.png" alt="logo_sportsee" className="logo_sportsee" />
           <p className="nav-text-red">SportSee</p>
         </div>
         <p className="nav-text-white">Accueil</p>
