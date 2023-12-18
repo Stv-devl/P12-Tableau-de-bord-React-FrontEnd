@@ -1,12 +1,10 @@
 import { createContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { getDatas } from "../services/apiService";
 import filterWithId from "../utils/filterWithId";
 
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  const { id } = useParams();
   const [profilId, setProfilId] = useState(12);
   const [unfilteredUser, setfilteredUser] = useState({});
   const [datas, setDatas] = useState({
@@ -16,9 +14,9 @@ const DataProvider = ({ children }) => {
     session: [],
   });
 
-  useEffect(() => {
-    id && setProfilId(parseInt(id, 10));
-  }, [id]);
+  const getProfilId = (id) => {
+    setProfilId(id);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,6 +44,7 @@ const DataProvider = ({ children }) => {
           performance: filterWithId(scoreRes, profilId),
           session: filterWithId(sessionsRes, profilId),
         };
+
         setDatas(filteredData);
         setfilteredUser(unfilteredData);
       } catch (error) {
@@ -57,7 +56,7 @@ const DataProvider = ({ children }) => {
   }, [profilId]);
 
   return (
-    <DataContext.Provider value={{ datas, unfilteredUser }}>
+    <DataContext.Provider value={{ datas, unfilteredUser, getProfilId }}>
       {children}
     </DataContext.Provider>
   );

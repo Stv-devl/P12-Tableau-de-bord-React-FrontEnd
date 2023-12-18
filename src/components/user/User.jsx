@@ -1,8 +1,16 @@
 import React from "react";
 
 const User = ({ data }) => {
-  /*console.log(data);*/
-  return <div></div>;
+  const firstName = data.length > 0 && data[0].userInfos.firstName;
+
+  return (
+    <div className="user_Wrapper">
+      <h1>
+        Bonjour <span className="h1-red">{firstName && firstName}</span>
+      </h1>
+      <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
+    </div>
+  );
 };
 
 export default User;
