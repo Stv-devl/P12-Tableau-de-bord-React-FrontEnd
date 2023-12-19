@@ -28,7 +28,9 @@ const Dashboard = () => {
       <div className="performance_container">
         <Score data={performance} />
       </div>
-      <Session data={session} />
+      <div className="sessions-container">
+        <Session data={session} />
+      </div>
     </div>
   );
 };

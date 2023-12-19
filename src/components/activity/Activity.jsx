@@ -8,21 +8,9 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import formatActivity from "../../utils/formatActivity";
 
 const Activity = ({ data }) => {
-  //create the rechart array with data
-  function getSessionsArray() {
-    if (data.length > 0 && data) {
-      const session = data[0].sessions;
-      return session.map((item, index) => ({
-        name: index + 1,
-        kilogram: item.kilogram,
-        calories: item.calories,
-      }));
-    }
-    return [];
-  }
-
   return (
     <>
       <div className="header-container">
@@ -40,7 +28,7 @@ const Activity = ({ data }) => {
         <BarChart
           width={700}
           height={300}
-          data={getSessionsArray()}
+          data={formatActivity(data)}
           margin={{
             top: 0,
             right: 0,
