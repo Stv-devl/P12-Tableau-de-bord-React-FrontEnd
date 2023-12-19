@@ -10,9 +10,7 @@ const Dashboard = () => {
   const { id } = useParams();
   const { datas, getProfilId } = useContext(DataContext);
   const { user, activity, performance, session } = datas;
-
   console.log(performance);
-
   useEffect(() => {
     if (id) {
       getProfilId(parseInt(id, 10));

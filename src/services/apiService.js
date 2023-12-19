@@ -13,7 +13,6 @@ export const getDatas = async (item, endUrl, profilId) => {
         `${baseUrl}/${profilId ? profilId : 12}/${endUrl}`
       );
       const datas = res.data.data;
-
       return [datas];
     } else {
       return mockedData[item].map((item) => item.data);
