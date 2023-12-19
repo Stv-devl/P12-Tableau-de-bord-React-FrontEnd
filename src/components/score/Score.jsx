@@ -22,13 +22,17 @@ const Score = ({ data }) => {
         innerRadius={80}
         outerRadius={180}
         barSize={15}
-        data={[
-          userScore && {
-            name: "Score",
-            score: userScore,
-            fill: "#FF0000",
-          },
-        ].filter(Boolean)}
+        data={
+          userScore
+            ? [
+                {
+                  name: "Score",
+                  score: userScore,
+                  fill: "#FF0000",
+                },
+              ]
+            : []
+        }
         startAngle={180}
         endAngle={-180}
       >

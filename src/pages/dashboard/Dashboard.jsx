@@ -6,6 +6,7 @@ import Activity from "../../components/activity/Activity";
 import Performance from "../../components/performance/Performance";
 import Session from "../../components/session/Session";
 import Score from "../../components/score/Score";
+import Macronutrient from "../../components/macronutrient/Macronutrient";
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -34,6 +35,9 @@ const Dashboard = () => {
       </div>
       <div className="score_container">
         <Score data={user} />
+      </div>
+      <div className="macronutrient_container">
+        <Macronutrient data={user} />
       </div>
     </div>
   );
