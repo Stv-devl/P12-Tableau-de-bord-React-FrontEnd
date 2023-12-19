@@ -5,6 +5,7 @@ import User from "../../components/user/User";
 import Activity from "../../components/activity/Activity";
 import Performance from "../../components/performance/Performance";
 import Session from "../../components/session/Session";
+import Score from "../../components/score/Score";
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -30,6 +31,9 @@ const Dashboard = () => {
       </div>
       <div className="performance_container">
         <Performance data={performance} />
+      </div>
+      <div className="score_container">
+        <Score data={user} />
       </div>
     </div>
   );
