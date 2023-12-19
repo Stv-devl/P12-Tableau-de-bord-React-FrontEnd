@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import { DataContext } from "../../data/DataProvider";
 import User from "../../components/user/User";
 import Activity from "../../components/activity/Activity";
-import Score from "../../components/score/Score";
+import Performance from "../../components/performance/Performance";
 import Session from "../../components/session/Session";
 
 const Dashboard = () => {
   const { id } = useParams();
   const { datas, getProfilId } = useContext(DataContext);
   const { user, activity, performance, session } = datas;
-  console.log(performance);
+
   useEffect(() => {
     if (id) {
       getProfilId(parseInt(id, 10));
@@ -25,11 +25,11 @@ const Dashboard = () => {
       <div className="activity_container">
         <Activity data={activity} />
       </div>
-      <div className="performance_container">
-        <Score data={performance} />
-      </div>
       <div className="sessions-container">
         <Session data={session} />
+      </div>
+      <div className="performance_container">
+        <Performance data={performance} />
       </div>
     </div>
   );
