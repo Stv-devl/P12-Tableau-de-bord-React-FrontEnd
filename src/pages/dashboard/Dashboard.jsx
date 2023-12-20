@@ -20,26 +20,34 @@ const Dashboard = () => {
   }, [id, getProfilId]);
 
   return (
-    <div className="dashboard">
-      <div className="user_container">
-        <User data={user} />
+    <main>
+      <div className="dashboard">
+        <div className="user_container">
+          <User data={user} />
+        </div>
+        <div className="chart-container">
+          <div className="chart-wrapper">
+            <div className="activity_container">
+              <Activity data={activity} />
+            </div>
+            <div className="chart-down">
+              <div className="sessions-container">
+                <Session data={session} />
+              </div>
+              <div className="performance_container">
+                <Performance data={performance} />
+              </div>
+              <div className="score_container">
+                <Score data={user} />
+              </div>
+            </div>
+          </div>
+          <div className="macronutrient_container">
+            <Macronutrient data={user} />
+          </div>
+        </div>
       </div>
-      <div className="activity_container">
-        <Activity data={activity} />
-      </div>
-      <div className="sessions-container">
-        <Session data={session} />
-      </div>
-      <div className="performance_container">
-        <Performance data={performance} />
-      </div>
-      <div className="score_container">
-        <Score data={user} />
-      </div>
-      <div className="macronutrient_container">
-        <Macronutrient data={user} />
-      </div>
-    </div>
+    </main>
   );
 };
 

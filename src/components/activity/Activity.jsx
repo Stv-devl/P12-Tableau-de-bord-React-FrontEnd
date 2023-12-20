@@ -13,17 +13,6 @@ import formatActivity from "../../utils/formatActivity";
 const Activity = ({ data }) => {
   return (
     <>
-      <div className="header-container">
-        <p className="chart-title">Activité quotidienne</p>
-        <div className="weight-wrapper">
-          <span className="circle-black">Poids (kg)</span>
-          <p className="chart-description"></p>
-        </div>
-        <div className="cal-wrapper">
-          <span className="circle-red"></span>
-          <p className="chart-description">Calories brûlées (kCal)</p>
-        </div>
-      </div>
       <div className="activity-chart-container">
         <BarChart
           width={700}
