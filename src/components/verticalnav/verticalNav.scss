@@ -1,0 +1,26 @@
+.sidebar {
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  width: 117px;
+  top: 91px;
+  left: 0;
+  background-color: $black;
+
+  .img-wrapper {
+    @include center-column;
+    padding-top: 270px;
+    gap: 22px;
+
+    .nav-img {
+      width: 67px;
+    }
+  }
+  .copyright {
+    position: fixed;
+    z-index: 1;
+    transform: rotate(-90deg);
+    top: 87%;
+    left: -10px;
+  }
+}

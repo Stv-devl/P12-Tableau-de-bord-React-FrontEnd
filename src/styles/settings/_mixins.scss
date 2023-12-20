@@ -16,13 +16,11 @@
 
 @mixin space-between-row {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
 
 @mixin space-between-row-center {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }

@@ -12,18 +12,24 @@
 }
 
 body {
-  max-width: 1850px;
-  text-align: center;
+  max-width: 1950px;
   background-color: $white;
-  margin: 0 auto;
 }
 
 main {
-  display: block;
+  position: fixed;
+  z-index: 1;
+  top: 91px;
+  left: 117px;
+  width: 100%;
+  height: 100%;
+  max-width: 1833px;
+  max-height: 1250px;
 }
 
 /*************Text link & img fit***************/
 a,
 a:visited {
   text-decoration: none;
+  color: $black;
 }

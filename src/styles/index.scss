@@ -1,4 +1,7 @@
-/*@import "./settings/colors";
+@import "./settings/colors";
 @import "./settings/mixins";
 @import "./settings/settings";
-@import "./settings/fonts";*/
+@import "./settings/fonts";
+@import "../components/banner/banner.scss";
+@import "../components/verticalnav/verticalNav.scss";
+@import "../pages/home/home.scss";

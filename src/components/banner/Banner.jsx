@@ -12,10 +12,11 @@ const Banner = () => {
           />
           <p className="nav-text-red">SportSee</p>
         </div>
+
         <p className="nav-text">Accueil</p>
 
         <Link to={`/home`}>
-          <p className="nav-text">Profil</p>
+          <p className="nav-text active">Profil</p>
         </Link>
 
         <p className="nav-text">Réglage</p>
