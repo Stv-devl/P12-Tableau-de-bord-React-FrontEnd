@@ -62,6 +62,9 @@ h2 {
 .chart-description {
   font-size: 14px;
   color: $textDarkGrey;
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 
 .chart-scale {
@@ -84,11 +87,10 @@ h2 {
   color: $white;
 }
 
-/*
 .chart-result {
   font-size: 26px;
-  color: $textBlacks;
-}*/
+  color: $textBlack;
+}
 
 .chart-objectif {
   font-size: 16px;

@@ -2,29 +2,26 @@
   padding: 65px 0 0 6%;
 
   .user_container {
-    display: flex;
-    flex-direction: column;
+    @include direction-column;
     gap: 38px;
     padding-bottom: 77px;
   }
 
   .chart-container {
-    display: flex;
+    @include direction-row;
     gap: 30px;
 
     .chart-wrapper {
-      display: flex;
-      flex-direction: column;
+      @include direction-column;
       gap: 30px;
 
       .chart-down {
-        display: flex;
-        align-items: center;
+        @include center-row-align;
       }
     }
     .macronutrient_container {
-      display: flex;
-      flex-direction: column;
+      @include direction-column;
+      gap: 39px;
     }
   }
 }
