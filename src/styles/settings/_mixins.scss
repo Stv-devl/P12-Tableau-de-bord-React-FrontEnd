@@ -1,12 +1,12 @@
 /*************************Setting mixin************************/
+@mixin direction-row {
+  display: flex;
+}
+
 @mixin center-row {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-@mixin direction-row {
-  display: flex;
 }
 
 @mixin center-row-justify {

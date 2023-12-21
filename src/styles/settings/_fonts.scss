@@ -51,7 +51,7 @@ h2 {
   color: $textBlack;
 }
 
-.chart-title {
+.title-activity {
   color: $textLightBlack;
 }
 
@@ -59,6 +59,7 @@ h2 {
   color: $white;
 }
 
+.legend-value,
 .chart-description {
   font-size: 14px;
   color: $textDarkGrey;
@@ -100,4 +101,9 @@ h2 {
 .chart-value {
   font-size: 28px;
   color: $textBlack;
+}
+
+.recharts-tooltip-item {
+  font-size: 7px;
+  color: #ffffff !important;
 }

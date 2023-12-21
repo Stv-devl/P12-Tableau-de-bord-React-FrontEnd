@@ -1,0 +1,21 @@
+.activity-legend-wrapper {
+  @include space-between-row;
+
+  .recharts-activity-legend {
+    @include direction-row;
+    gap: 32px;
+
+    .value-wrapper {
+      @include center-row-align;
+
+      gap: 12px;
+
+      .legend-icon {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+      }
+    }
+  }
+}

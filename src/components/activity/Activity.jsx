@@ -9,41 +9,77 @@ import {
   Legend,
 } from "recharts";
 import formatActivity from "../../utils/formatActivity";
+import CustomLegend from "../customrecharts/customlegend/CustomLegend";
 
 const Activity = ({ data }) => {
   return (
     <>
-      <div className="activity-chart-container">
-        <BarChart
-          width={700}
-          height={300}
-          data={formatActivity(data)}
-          margin={{
-            top: 0,
-            right: 0,
-            left: 0,
-            bottom: 0,
+      <BarChart
+        width={835}
+        height={320}
+        data={formatActivity(data)}
+        margin={{
+          top: 112,
+          right: 31,
+          left: -16,
+          bottom: 32,
+        }}
+        style={{
+          backgroundColor: "rgb(251 251 251)",
+          borderRadius: 10,
+        }}
+        barGap={10}
+        barSize={10}
+      >
+        <CartesianGrid strokeDasharray="2 2" vertical={false} />
+        <YAxis yAxisId="notDisplay" display="none" />
+        <YAxis
+          yAxisId="right"
+          orientation="right"
+          allowDecimals={false}
+          domain={["dataMin-1", "dataMax+2"]}
+          axisLine={false}
+          tickLine={false}
+          tickMargin={40}
+          tick={{ fill: "#9B9EAC" }}
+        />
+        <XAxis
+          dataKey="name"
+          tickLine={false}
+          axisLine={{ stroke: "lightgrey", strokeWidth: 1 }}
+          tick={{ fill: "#9B9EAC" }}
+          tickMargin={12}
+          padding={{ left: -42, right: -42 }}
+        />
+        <Tooltip
+          contentStyle={{
+            backgroundColor: "#E60000",
+            border: "none",
+            width: 39,
+            height: 63,
           }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis orientation="right" />
-          <Tooltip />
-          <Legend />
-          <Bar
-            dataKey="kilogram"
-            fill="#282D30"
-            barSize={7}
-            radius={[10, 10, 0, 0]}
-          />
-          <Bar
-            dataKey="calories"
-            fill="#E60000"
-            barSize={7}
-            radius={[10, 10, 0, 0]}
-          />
-        </BarChart>
-      </div>
+          formatter={(value, name) => {
+            return [name === "kilogram" ? `${value} kg` : `${value} kCal`];
+          }}
+          labelFormatter={() => ""}
+        />
+        <Legend
+          content={CustomLegend}
+          wrapperStyle={{ left: 43, top: "24px", width: 770 }}
+        />
+        <Bar
+          yAxisId="right"
+          dataKey="kilogram"
+          fill="#282D30"
+          radius={[10, 10, 0, 0]}
+        />
+        <Bar
+          yAxisId="notDisplay"
+          dataKey="calories"
+          fill="#E60000"
+          radius={[10, 10, 0, 0]}
+        />
+      </BarChart>
     </>
   );
 };
