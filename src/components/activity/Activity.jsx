@@ -53,10 +53,12 @@ const Activity = ({ data }) => {
         />
         <Tooltip
           contentStyle={{
+            position: "relative",
             backgroundColor: "#E60000",
             border: "none",
             width: 39,
             height: 63,
+            left: 10,
           }}
           formatter={(value, name) => {
             return [name === "kilogram" ? `${value} kg` : `${value} kCal`];
