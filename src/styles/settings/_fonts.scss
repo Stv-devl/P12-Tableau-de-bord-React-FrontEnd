@@ -103,7 +103,12 @@ h2 {
   color: $textBlack;
 }
 
-.recharts-tooltip-item {
+.activityTooltip .recharts-tooltip-item-value {
   font-size: 7px;
-  color: #ffffff !important;
+  color: $white;
+}
+
+.sessionTooltip .recharts-tooltip-item-value {
+  font-size: 8px;
+  color: $black;
 }

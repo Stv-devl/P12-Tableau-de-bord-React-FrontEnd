@@ -1,5 +1,4 @@
 const formatPerformance = (data) => {
-  //create the rechart array with data
   if (data.length > 0 && data) {
     const kinds = data[0].kind;
     const getValues = data[0].datas;

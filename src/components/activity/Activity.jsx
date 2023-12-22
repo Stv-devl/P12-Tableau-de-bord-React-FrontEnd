@@ -60,6 +60,7 @@ const Activity = ({ data }) => {
             height: 63,
             left: 10,
           }}
+          wrapperClassName="activityTooltip"
           formatter={(value, name) => {
             return [name === "kilogram" ? `${value} kg` : `${value} kCal`];
           }}

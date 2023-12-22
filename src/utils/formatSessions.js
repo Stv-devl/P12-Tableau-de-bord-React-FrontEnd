@@ -1,9 +1,9 @@
 const formatSessions = (data) => {
-  //create the rechart array with data
   if (data.length > 0 && data) {
     const session = data[0].sessions;
+    const weekDay = ["L", "M", "M", "J", "V", "S", "D"];
     return session.map((item) => ({
-      day: item.day,
+      day: weekDay[item.day - 1],
       session: item.sessionLength,
     }));
   }

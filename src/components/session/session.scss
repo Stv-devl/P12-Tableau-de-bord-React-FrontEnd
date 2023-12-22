@@ -1,11 +1,12 @@
-.activityTooltip {
+.sessionTooltip {
   padding: 0 !important;
 
   .recharts-tooltip-item-list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 8px;
+
+    .recharts-tooltip-item {
+      padding: 0 !important;
+    }
   }
 }
