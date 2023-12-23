@@ -67,7 +67,7 @@ const Activity = ({ data }) => {
           labelFormatter={() => ""}
         />
         <Legend
-          content={CustomLegend}
+          content={<CustomLegend />}
           wrapperStyle={{ left: 43, top: "24px", width: 770 }}
         />
         <Bar

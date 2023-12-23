@@ -1,11 +1,11 @@
-import React from "react";
 import formatSessions from "../../utils/formatSessions";
-import { LineChart, Line, XAxis, Tooltip, Text } from "recharts";
+import { LineChart, Line, XAxis, Tooltip } from "recharts";
+import CustomCursor from "../customrecharts/customcursor/CustomCursor";
 
 const Session = ({ data }) => {
   return (
     <>
-      {/* <div className="chart-title-white">Durée moyenne des sessions</div>*/}
+      <div className="chart-title-white">Durée moyenne des sessions</div>
       <LineChart
         width={258}
         height={253}
@@ -14,23 +14,40 @@ const Session = ({ data }) => {
           backgroundColor: "#FF0000",
           borderRadius: 5,
         }}
+        margin={{
+          top: 77,
+          bottom: 20,
+        }}
       >
+        <defs>
+          <linearGradient id="linGradient" x1="0" x2="1">
+            <stop offset="40%" stopColor="#FFFFFF" stopOpacity={0.5} />
+            <stop offset="80%" stopColor="#FFFFFF" stopOpacity={1} />
+          </linearGradient>
+        </defs>
         <XAxis
           dataKey="day"
           axisLine={false}
           tickLine={false}
-          tick={{ fill: "#FFFFFF", fontSize: 12 }}
-          padding={{ left: 10, right: 10 }}
+          tick={{ fill: "rgba(255, 255, 255, 0.55)", fontSize: 12 }}
+          padding={{ left: 15, right: 15 }}
+          tickMargin={10}
+          xAxisId="display"
         />
+
+        <XAxis dataKey="day" hide xAxisId="notDisplay" />
+
         <Line
           type="monotone"
           dataKey="session"
-          stroke="#8884d8"
+          stroke="#FFFFFF"
           strokeWidth={2}
           dot={false}
-          style={{ stroke: "#FFFFFF" }}
+          style={{ stroke: "url(#linGradient)" }}
+          xAxisId="notDisplay"
         />
         <Tooltip
+          cursor={<CustomCursor />}
           contentStyle={{
             position: "relative",
             backgroundColor: "#FFFFFF",
@@ -41,6 +58,7 @@ const Session = ({ data }) => {
           wrapperClassName="sessionTooltip"
           formatter={(value) => [`${value} min`]}
           labelFormatter={() => ""}
+          trigger="click"
         />
       </LineChart>
     </>
