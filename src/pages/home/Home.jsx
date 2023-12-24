@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { DataContext } from "../../data/DataProvider";
+import useManageApi from "../../hook/useManageApi";
 
 const Home = () => {
-  const { unfilteredUser } = useContext(DataContext);
+  const { unfilteredUser } = useManageApi();
   const getUsersData = unfilteredUser.user || [];
 
   return (

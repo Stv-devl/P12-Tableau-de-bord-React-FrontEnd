@@ -134,7 +134,7 @@ const dataPerformance = [
         5: "speed",
         6: "intensity",
       },
-      datas: [
+      data: [
         {
           value: 80,
           kind: 1,
@@ -174,7 +174,7 @@ const dataPerformance = [
         5: "speed",
         6: "intensity",
       },
-      datas: [
+      data: [
         {
           value: 200,
           kind: 1,

@@ -1,29 +1,34 @@
-import { createContext, useState, useEffect } from "react";
-import { getDatas } from "../services/apiService";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import getDatas from "../services/apiService";
 import filterWithId from "../utils/filterWithId";
 
-const DataContext = createContext();
-
-const DataProvider = ({ children }) => {
+const useManageApi = () => {
+  const { id } = useParams();
   const [profilId, setProfilId] = useState(12);
   const [unfilteredUser, setfilteredUser] = useState({});
   const [datas, setDatas] = useState({
-    user: [],
-    activity: [],
-    performance: [],
-    session: [],
+    user: {},
+    activity: {},
+    performance: {},
+    session: {},
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const getProfilId = (id) => {
-    setProfilId(id);
-  };
+  useEffect(() => {
+    if (id) {
+      setProfilId(parseInt(id, 10));
+    }
+  }, [id]);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
+      setError(null);
       try {
         const [userRes, inverseRes, activityRes, scoreRes, sessionsRes] =
           await Promise.all([
-            //item, endUrl, id
             getDatas("user", "", profilId),
             //get the other user for use in Home.jsx (if mock=false)
             getDatas("user", "", profilId === 18 ? 12 : 18),
@@ -36,7 +41,6 @@ const DataProvider = ({ children }) => {
         const unfilteredData = {
           user: inverseRes.length <= 1 ? userRes.concat(inverseRes) : userRes,
         };
-
         //filter data with Id in the util function
         const filteredData = {
           user: filterWithId(userRes, profilId),
@@ -47,19 +51,18 @@ const DataProvider = ({ children }) => {
 
         setDatas(filteredData);
         setfilteredUser(unfilteredData);
-      } catch (error) {
-        console.error("Erreur", error);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
       }
     };
+
     fetchData();
     //useEffect at launch and id change
   }, [profilId]);
 
-  return (
-    <DataContext.Provider value={{ datas, unfilteredUser, getProfilId }}>
-      {children}
-    </DataContext.Provider>
-  );
+  return { datas, unfilteredUser, loading, error };
 };
 
-export { DataContext, DataProvider };
+export default useManageApi;

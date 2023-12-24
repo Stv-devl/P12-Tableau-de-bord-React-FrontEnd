@@ -2,10 +2,9 @@ import axios from "axios";
 import { mockedData } from "../data/mockDatas";
 
 //we work with mock on true
-const useMock = true;
+const useMock = false;
 const baseUrl = "http://localhost:3000/user";
 
-//
 export const getDatas = async (item, endUrl, profilId) => {
   try {
     if (!useMock) {
@@ -18,7 +17,7 @@ export const getDatas = async (item, endUrl, profilId) => {
       return mockedData[item].map((item) => item.data);
     }
   } catch (error) {
-    console.error(`Erreur with ${item} data", error`);
+    console.error(`Erreur with ${item} data`, error);
     throw error;
   }
 };
