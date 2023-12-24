@@ -4,9 +4,6 @@ const formatPerformance = (data) => {
     const getValues = data[0].data;
     //create an array with kinds
     const kindValues = Object.values(kinds);
-
-    console.log(getValues);
-
     return getValues.map((item, index) => ({
       subject: kindValues[index],
       session: item.value,
