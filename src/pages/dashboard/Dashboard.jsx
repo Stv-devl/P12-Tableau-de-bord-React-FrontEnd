@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useManageApi from "../../hook/useManageApi";
 import User from "../../components/user/User";
@@ -10,14 +9,8 @@ import Macronutrient from "../../components/macronutrient/Macronutrient";
 
 const Dashboard = () => {
   const { id } = useParams();
-  const [profilId, setProfilId] = useState(12);
-
-  useEffect(() => {
-    id && setProfilId(parseInt(id, 10));
-  }, [id]);
-
-  const { datas } = useManageApi(profilId);
-  const { user, activity, performance, session } = datas;
+  const { data } = useManageApi(id);
+  const { user, activity, performance, sessions } = data;
 
   return (
     <main>
@@ -32,7 +25,7 @@ const Dashboard = () => {
             </div>
             <div className="chart-down">
               <div className="sessions-container">
-                <Session data={session} />
+                <Session data={sessions} />
               </div>
               <div className="performance_container">
                 <Performance data={performance} />

@@ -8,7 +8,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-import formatActivity from "../../utils/formatActivity";
+import { formatActivity } from "../../services/formatDatas";
 import CustomLegend from "../customrecharts/customlegend/CustomLegend";
 
 const Activity = ({ data }) => {

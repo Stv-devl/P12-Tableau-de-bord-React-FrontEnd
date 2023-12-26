@@ -1,4 +1,4 @@
-import formatSessions from "../../utils/formatSessions";
+import { formatSessions } from "../../services/formatDatas";
 import { LineChart, Line, XAxis, Tooltip } from "recharts";
 import CustomCursor from "../customrecharts/customcursor/CustomCursor";
 

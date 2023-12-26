@@ -1,7 +1,7 @@
 import React from "react";
 
 const Macronutrient = ({ data }) => {
-  const getNutrient = data && data.length > 0 ? data[0].keyData : {};
+  const getNutrient = data ? data[0].keyData : {};
   const nutrientArray = Object.entries(getNutrient);
 
   return (

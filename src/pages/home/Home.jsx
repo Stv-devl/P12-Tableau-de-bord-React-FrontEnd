@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
-import useManageApi from "../../hook/useManageApi";
+import getMockedDatas from "../../services/getMockedDatas";
 
 const Home = () => {
-  const { datas } = useManageApi();
-  const { user } = datas;
+  const { allUsers } = getMockedDatas();
 
   return (
     <main className="user-main">
       <div className="user-container">
-        {user.length > 1 &&
-          user.map(
+        {allUsers &&
+          allUsers.map(
             (item) =>
               item.id !== undefined && (
                 <Link

@@ -6,7 +6,7 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
 } from "recharts";
-import formatPerformance from "../../utils/formatPerformance";
+import { formatPerformance } from "../../services/formatDatas";
 
 const Performance = ({ data }) => {
   return (

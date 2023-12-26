@@ -5,7 +5,7 @@ const Score = ({ data }) => {
   const [userScore, setUserScore] = useState(null);
 
   useEffect(() => {
-    if (data && data.length > 0) {
+    if (data) {
       setUserScore(
         (data[0].score !== undefined ? data[0].score : data[0].todayScore) * 100
       );

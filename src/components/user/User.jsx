@@ -1,7 +1,7 @@
 import React from "react";
 
 const User = ({ data }) => {
-  const firstName = data.length > 0 && data[0].userInfos.firstName;
+  const firstName = data && data[0].userInfos.firstName;
 
   return (
     <>

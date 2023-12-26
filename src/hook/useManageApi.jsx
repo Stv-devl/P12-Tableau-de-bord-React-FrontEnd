@@ -1,42 +1,29 @@
 import { useState, useEffect } from "react";
-import { getDatas } from "../services/apiService";
+import getDatas from "../services/apiService";
+import getMockedDatas from "../services/getMockedDatas";
 
-const useManageApi = (profilId) => {
-  const [datas, setDatas] = useState({
-    user: {},
-    activity: {},
-    performance: {},
-    session: {},
-    loading: false,
-    error: null,
-  });
+function useManageApi(userId) {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      setDatas((prevDatas) => ({ ...prevDatas, loading: true, error: null }));
       try {
-        const user = await getDatas("user", profilId);
-        const activity = await getDatas("activity", profilId);
-        const performance = await getDatas("performance", profilId);
-        const session = await getDatas("session", profilId);
-
-        setDatas({
-          user,
-          activity,
-          performance,
-          session,
-          loading: false,
-          error: null,
-        });
+        setLoading(true);
+        const resData = await getDatas(userId);
+        setData(resData);
       } catch (err) {
-        setDatas((prevDatas) => ({ ...prevDatas, loading: false, error: err }));
+        setError(err);
+        setData(getMockedDatas(userId));
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
-  }, [profilId]);
-
-  return { datas };
-};
+  }, [userId]);
+  return { data, loading, error };
+}
 
 export default useManageApi;
