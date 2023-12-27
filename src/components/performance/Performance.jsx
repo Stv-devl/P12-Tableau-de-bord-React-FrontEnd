@@ -7,27 +7,37 @@ import {
   PolarRadiusAxis,
 } from "recharts";
 import { formatPerformance } from "../../services/formatDatas";
+import CustomPolygon from "../customrecharts/custompolygon/CustomPolygon";
 
 const Performance = ({ data }) => {
+  const formattedData = formatPerformance(data).reverse();
+
   return (
     <RadarChart
-      cx={300}
-      cy={250}
-      outerRadius={150}
-      width={500}
-      height={500}
-      data={formatPerformance(data)}
+      cx="50%"
+      cy="50%"
+      outerRadius={89}
+      width={258}
+      height={263}
+      data={formattedData.length > 0 && formattedData}
+      style={{
+        backgroundColor: "#282D30",
+        borderRadius: 5,
+      }}
     >
-      <PolarGrid />
-      <PolarAngleAxis dataKey="subject" />
-      <PolarRadiusAxis />
-      <Radar
-        name="Mike"
-        dataKey="session"
-        stroke="#8884d8"
-        fill="#8884d8"
-        fillOpacity={0.6}
+      {CustomPolygon()}
+      <PolarGrid radialLines={false} />
+      <PolarRadiusAxis axisLine={false} tick={false} tickCount={5} />
+      <PolarAngleAxis
+        dataKey="subject"
+        tick={{
+          fontSize: 12,
+          fontWeight: 500,
+          fill: "#ffffff",
+        }}
+        dy={3}
       />
+      <Radar dataKey="session" fill="rgba(255, 1, 1, 0.70)" fillOpacity={0.7} />
     </RadarChart>
   );
 };

@@ -12,10 +12,17 @@ export const formatActivity = (data) => {
 
 export const formatPerformance = (data) => {
   if (data) {
-    const { kind, data: performanceData } = data[0];
-    const kindValues = Object.values(kind);
+    const { data: performanceData } = data[0];
+    const legend = [
+      "Cardio",
+      "Energie",
+      "Endurance",
+      "Force",
+      "Vitesse",
+      "Intensité",
+    ];
     return performanceData.map((item, index) => ({
-      subject: kindValues[index],
+      subject: legend[index],
       session: item.value,
     }));
   }
@@ -36,7 +43,6 @@ export const formatSessions = (data) => {
 
 export const formatNutrient = (data) => {
   if (data) {
-    console.log(data);
     const getNutrient = data ? data[0].keyData : {};
     const nutrientArray = Object.entries(getNutrient);
     return nutrientArray.map((item) => ({
