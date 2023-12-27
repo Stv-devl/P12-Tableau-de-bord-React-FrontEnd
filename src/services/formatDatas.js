@@ -12,10 +12,9 @@ export const formatActivity = (data) => {
 
 export const formatPerformance = (data) => {
   if (data) {
-    const kinds = data[0].kind;
-    const getValues = data[0].data;
-    const kindValues = Object.values(kinds);
-    return getValues.map((item, index) => ({
+    const { kind, data: performanceData } = data[0];
+    const kindValues = Object.values(kind);
+    return performanceData.map((item, index) => ({
       subject: kindValues[index],
       session: item.value,
     }));
@@ -31,6 +30,26 @@ export const formatSessions = (data) => {
       day: weekDay[item.day - 1],
       session: item.sessionLength,
     }));
+  }
+  return [];
+};
+
+export const formatNutrient = (data) => {
+  if (data) {
+    console.log(data);
+    const getNutrient = data ? data[0].keyData : {};
+    const nutrientArray = Object.entries(getNutrient);
+    return nutrientArray.map((item) => ({
+      names: item[0].split("C")[0],
+      number: item[1],
+    }));
+  }
+  return [];
+};
+
+export const formatScore = (data) => {
+  if (data) {
+    return (data[0].score || data[0].todayScore) * 100;
   }
   return [];
 };

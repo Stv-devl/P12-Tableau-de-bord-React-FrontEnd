@@ -1,17 +1,7 @@
-import { useState, useEffect } from "react";
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
+import { formatScore } from "../../services/formatDatas";
 
 const Score = ({ data }) => {
-  const [userScore, setUserScore] = useState(null);
-
-  useEffect(() => {
-    if (data) {
-      setUserScore(
-        (data[0].score !== undefined ? data[0].score : data[0].todayScore) * 100
-      );
-    }
-  }, [data]);
-
   return (
     <>
       <RadialBarChart
@@ -22,17 +12,13 @@ const Score = ({ data }) => {
         innerRadius={80}
         outerRadius={180}
         barSize={15}
-        data={
-          userScore
-            ? [
-                {
-                  name: "Score",
-                  score: userScore,
-                  fill: "#FF0000",
-                },
-              ]
-            : []
-        }
+        data={[
+          {
+            name: "Score",
+            score: formatScore(data),
+            fill: "#FF0000",
+          },
+        ]}
         startAngle={180}
         endAngle={-180}
       >

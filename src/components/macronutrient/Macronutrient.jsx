@@ -1,31 +1,24 @@
 import React from "react";
+import { formatNutrient } from "../../services/formatDatas";
 
 const Macronutrient = ({ data }) => {
-  const getNutrient = data ? data[0].keyData : {};
-  const nutrientArray = Object.entries(getNutrient);
-
   return (
     <>
-      {nutrientArray.map((item) => {
-        const names = item[0].split("C")[0];
-        const number = item[1];
-
-        return (
-          <div key={names} className={`nutrient-cart`}>
-            <img
-              src={`../${names}-icon.png`}
-              alt={`${names} icon`}
-              className="nutrient-img"
-            />
-            <div className="text-wrapper">
-              <p className="chart-result">
-                {names === "calorie" ? `${number}kCal` : `${number}g`}
-              </p>
-              <p className="chart-description">{`${names}s`}</p>
-            </div>
+      {formatNutrient(data).map(({ names, number }) => (
+        <div key={names} className={`nutrient-cart`}>
+          <img
+            src={`../${names}-icon.png`}
+            alt={`${names} icon`}
+            className="nutrient-img"
+          />
+          <div className="text-wrapper">
+            <p className="chart-result">
+              {names === "calorie" ? `${number}kCal` : `${number}g`}
+            </p>
+            <p className="chart-description">{`${names}s`}</p>
           </div>
-        );
-      })}
+        </div>
+      ))}
     </>
   );
 };
