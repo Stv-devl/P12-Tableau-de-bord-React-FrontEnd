@@ -49,7 +49,6 @@ const Session = ({ data }) => {
           cursor={<CustomCursor />}
           contentStyle={{
             position: "relative",
-            backgroundColor: "#FFFFFF",
             border: "none",
             width: 39,
             height: 25,
@@ -59,20 +58,10 @@ const Session = ({ data }) => {
           labelFormatter={() => ""}
           trigger="click"
         />
-        <text
-          x={34}
-          y={40}
-          className="chart-title-white"
-          fill="rgba(255, 255, 255, 0.5)"
-        >
+        <text x={34} y={40} fill="rgba(255, 255, 255, 0.5)">
           Durée moyenne des
         </text>
-        <text
-          x={34}
-          y={60}
-          className="chart-title-white"
-          fill="rgba(255, 255, 255, 0.5)"
-        >
+        <text x={34} y={60} fill="rgba(255, 255, 255, 0.5)">
           sessions
         </text>
       </LineChart>

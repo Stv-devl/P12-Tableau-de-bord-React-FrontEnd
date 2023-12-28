@@ -1,6 +1,6 @@
 import React from "react";
 
-const CustomLegend = (props) => {
+const CustomActivityLegend = (props) => {
   const { payload } = props;
 
   return (
@@ -27,4 +27,4 @@ const CustomLegend = (props) => {
   );
 };
 
-export default CustomLegend;
+export default CustomActivityLegend;

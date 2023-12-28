@@ -1,6 +1,6 @@
-import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
+import { RadialBarChart, RadialBar, PolarAngleAxis, Legend } from "recharts";
 import { formatScore } from "../../services/formatDatas";
-
+import CustomScoreLegend from "../customrecharts/customscorelegend/CustomScoreLegend";
 const Score = ({ data }) => {
   return (
     <>
@@ -12,8 +12,7 @@ const Score = ({ data }) => {
         innerRadius={80}
         outerRadius={180}
         barSize={15}
-        startAngle={180}
-        endAngle={-180}
+        startAngle={90}
         data={[
           {
             name: "Score",
@@ -26,17 +25,18 @@ const Score = ({ data }) => {
           borderRadius: 5,
         }}
       >
-        <PolarAngleAxis type="number" domain={[0, 55]} tick={false} />
+        <circle cx="50%" cy="50%" r="80" fill="#FFF" />
+
+        <PolarAngleAxis type="number" domain={[0, 80]} tick={false} />
+        <Legend content={<CustomScoreLegend />} />
+
         <RadialBar
           minAngle={15}
           clockWise={true}
           dataKey="score"
           cornerRadius={8}
-          background={{ fill: "#d0d0d0" }}
-          label={{
-            position: "insidestart",
-            fill: "#fff",
-          }}
+          background={{ fill: "#FFF" }}
+          label={false}
         />
       </RadialBarChart>
     </>

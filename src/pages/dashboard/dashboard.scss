@@ -17,11 +17,7 @@
 
       .chart-down {
         @include center-row-align;
-        height: 263px;
-
-        .sessions-container {
-          height: 263px;
-        }
+        gap: 30px;
       }
     }
     .macronutrient_container {

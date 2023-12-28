@@ -9,7 +9,7 @@ import {
   Legend,
 } from "recharts";
 import { formatActivity } from "../../services/formatDatas";
-import CustomLegend from "../customrecharts/customlegend/CustomLegend";
+import CustomActivityLegend from "../customrecharts/customactivitylegend/CustomActivityLegend";
 
 const Activity = ({ data }) => {
   return (
@@ -52,6 +52,9 @@ const Activity = ({ data }) => {
           padding={{ left: -42, right: -42 }}
         />
         <Tooltip
+          cursor={{
+            fill: "rgba(196, 196, 196, 0.50)",
+          }}
           contentStyle={{
             position: "relative",
             backgroundColor: "#E60000",
@@ -67,7 +70,7 @@ const Activity = ({ data }) => {
           labelFormatter={() => ""}
         />
         <Legend
-          content={<CustomLegend />}
+          content={<CustomActivityLegend />}
           wrapperStyle={{ left: 43, top: "24px", width: 770 }}
         />
         <Bar
