@@ -1,3 +1,10 @@
+export const formatUser = (data) => {
+  if (data) {
+    return data && data[0].userInfos.firstName;
+  }
+  return [];
+};
+
 export const formatActivity = (data) => {
   if (data) {
     const session = data[0].sessions;

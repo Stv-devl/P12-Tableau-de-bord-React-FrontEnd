@@ -5,10 +5,9 @@ import CustomCursor from "../customrecharts/customcursor/CustomCursor";
 const Session = ({ data }) => {
   return (
     <>
-      <div className="chart-title-white">Durée moyenne des sessions</div>
       <LineChart
         width={258}
-        height={253}
+        height={263}
         data={formatSessions(data)}
         style={{
           backgroundColor: "#FF0000",
@@ -60,6 +59,22 @@ const Session = ({ data }) => {
           labelFormatter={() => ""}
           trigger="click"
         />
+        <text
+          x={34}
+          y={40}
+          className="chart-title-white"
+          fill="rgba(255, 255, 255, 0.5)"
+        >
+          Durée moyenne des
+        </text>
+        <text
+          x={34}
+          y={60}
+          className="chart-title-white"
+          fill="rgba(255, 255, 255, 0.5)"
+        >
+          sessions
+        </text>
       </LineChart>
     </>
   );

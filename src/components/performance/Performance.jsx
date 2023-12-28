@@ -19,7 +19,7 @@ const Performance = ({ data }) => {
       outerRadius={89}
       width={258}
       height={263}
-      data={formattedData.length > 0 && formattedData}
+      data={formattedData}
       style={{
         backgroundColor: "#282D30",
         borderRadius: 5,
@@ -35,7 +35,7 @@ const Performance = ({ data }) => {
           fontWeight: 500,
           fill: "#ffffff",
         }}
-        dy={3}
+        dy={4}
       />
       <Radar dataKey="session" fill="rgba(255, 1, 1, 0.70)" fillOpacity={0.7} />
     </RadarChart>

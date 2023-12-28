@@ -1,12 +1,11 @@
 import React from "react";
+import { formatUser } from "../../services/formatDatas";
 
 const User = ({ data }) => {
-  const firstName = data && data[0].userInfos.firstName;
-
   return (
     <>
       <h1>
-        Bonjour <span className="h1-red">{firstName && firstName}</span>
+        Bonjour <span className="h1-red">{formatUser(data)}</span>
       </h1>
       <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
     </>

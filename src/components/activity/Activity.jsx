@@ -26,7 +26,7 @@ const Activity = ({ data }) => {
         }}
         style={{
           backgroundColor: "rgb(251 251 251)",
-          borderRadius: 10,
+          borderRadius: 5,
         }}
         barGap={10}
         barSize={10}

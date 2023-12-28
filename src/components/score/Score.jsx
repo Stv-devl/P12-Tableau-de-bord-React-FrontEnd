@@ -5,13 +5,15 @@ const Score = ({ data }) => {
   return (
     <>
       <RadialBarChart
-        width={500}
-        height={300}
-        cx={150}
-        cy={150}
+        width={258}
+        height={263}
+        cx="50%"
+        cy="50%"
         innerRadius={80}
         outerRadius={180}
         barSize={15}
+        startAngle={180}
+        endAngle={-180}
         data={[
           {
             name: "Score",
@@ -19,10 +21,12 @@ const Score = ({ data }) => {
             fill: "#FF0000",
           },
         ]}
-        startAngle={180}
-        endAngle={-180}
+        style={{
+          backgroundColor: "rgb(251 251 251)",
+          borderRadius: 5,
+        }}
       >
-        <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
+        <PolarAngleAxis type="number" domain={[0, 55]} tick={false} />
         <RadialBar
           minAngle={15}
           clockWise={true}
