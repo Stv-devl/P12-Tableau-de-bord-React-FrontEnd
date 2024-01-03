@@ -1,6 +1,15 @@
 import React from "react";
 import { formatNutrient } from "../../services/formatDatas";
 
+/**
+ * The component containing 4 cards who displaying the amount of each macronutrient.
+ * data is formated by 'formatNutrient'
+ * @param {Object} data - The data array object
+ * @param {string} data[].names - The name of the nutrient.
+ * @param {number} data[].number - The quantity of the nutrient.
+ * @returns {JSX.Element} - Display the 4 cards
+ */
+
 const Macronutrient = ({ data }) => {
   return (
     <>

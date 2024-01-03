@@ -4,12 +4,12 @@
   .user_container {
     @include direction-column;
     gap: 38px;
-    padding-bottom: 77px;
+    padding-bottom: 60px;
   }
 
   .chart-container {
     @include direction-row;
-    gap: 30px;
+    gap: 2%;
 
     .chart-wrapper {
       @include direction-column;

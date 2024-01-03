@@ -9,7 +9,51 @@ import {
   Legend,
 } from "recharts";
 import { formatActivity } from "../../services/formatDatas";
-import CustomActivityLegend from "../customrecharts/customactivitylegend/CustomActivityLegend";
+
+/**
+ * The component create a custom legend for the activity chart.
+ * @param {Object} props - The props for the component.
+ * @param {Object[]} props.payload - Get the items to display.
+ * @param {string} props.payload[].value - The value determine the label text
+ * @param {string} props.payload[].color - The color of each legend item.
+ * @returns {JSX.Element} - Display title & legend with description and color
+ */
+
+export const CustomActivityLegend = (props) => {
+  const { payload } = props;
+  return (
+    <>
+      <div className="activity-legend-wrapper">
+        <div className="title-activity">Activité quotidienne</div>
+        <div className="recharts-activity-legend">
+          {payload.map((item, index) => (
+            <div key={`value-wrapper${index}`} className="value-wrapper">
+              <span
+                className="legend-icon"
+                style={{ backgroundColor: item.color }}
+              ></span>
+              <p className="legend-value">
+                {item.value === "kilogram"
+                  ? "Poids (kg)"
+                  : "Calories brulées (kCal)"}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
+
+/**
+ * The component is a bar chart using recharts library and displaying the 'activity' datas.
+ * data is formated by 'formatActivity' to fit the chart requirements.
+ * @param {Object[]} data - The 'data' array object whith the 'activity' datas
+ * @param {number} data[].day - The x-coordinate containing the days of the week in number
+ * @param {number} data[].kilogram - Value of Kilogram for each day
+ * @param {number} data[].calories - Value of calories for each day
+ * @returns {JSX.Element} A bar chart visualization of activity.
+ */
 
 const Activity = ({ data }) => {
   return (
@@ -44,7 +88,7 @@ const Activity = ({ data }) => {
           tick={{ fill: "#9B9EAC" }}
         />
         <XAxis
-          dataKey="name"
+          dataKey="day"
           tickLine={false}
           axisLine={{ stroke: "lightgrey", strokeWidth: 1 }}
           tick={{ fill: "#9B9EAC" }}

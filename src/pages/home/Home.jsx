@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
 import getMockedDatas from "../../services/getMockedDatas";
 
+/**
+ * Home Component.
+ * Displays a list of user with clickable cards. Who links to the user's dashboard.
+ * The datas for the user profiles are obtained from the 'getMockedDatas'
+ * @param {Object[]} getMockedDatas - An object of arrays containing the 'allUsers' datas
+ * @returns {JSX.Element} - A list of user with clickable cards for each user
+ */
+
 const Home = () => {
   const { allUsers } = getMockedDatas();
 

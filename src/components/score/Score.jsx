@@ -1,6 +1,37 @@
 import { RadialBarChart, RadialBar, PolarAngleAxis, Legend } from "recharts";
 import { formatScore } from "../../services/formatDatas";
-import CustomScoreLegend from "../customrecharts/customscorelegend/CustomScoreLegend";
+
+/**
+ * This component create a custom legend for the score chart
+ * @param {Object} props - The props for the component.
+ * @param {Object[]} props.payload - We use the playload array of object for get the score
+ * @param {number} props.payload[].score - The score value who will be displayed in the legend.
+ * @returns {JSX.Element} - Will display the legend of the chart with the user score in % and the description.
+ */
+
+export const CustomScoreLegend = (props) => {
+  const { payload } = props;
+  return (
+    <>
+      <div className="label-score-wrapper">
+        <div className="label-score">{payload && payload[0].payload.score}</div>
+        <p className="label-score-text">
+          de votre <br />
+          objectif
+        </p>
+      </div>
+    </>
+  );
+};
+
+/**
+ * The component renders a Radial Chart using recharts library and displaying the 'user' datas.
+ * 'data' is formated by 'formatScore' to fit the chart requirements.
+ * @param {Object[]} data - The object of array of 'user' data
+ * @param {number} data[].score - The number representing the value of users score
+ * @returns {JSX.Element} - A Radial bar chart visualizing the user's score in %
+ */
+
 const Score = ({ data }) => {
   return (
     <>

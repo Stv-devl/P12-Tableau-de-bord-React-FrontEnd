@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
 
+/**
+ * The component represent the horizontal nav on the top of the project .
+ * @returns {JSX.Element} - The header element containing the navigation bar with logo and links.
+ */
+
 const Banner = () => {
   return (
     <header>

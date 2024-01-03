@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * The component is a vertical navigation bar, on the left of the app.
+ * @returns {JSX.Element} - A vertical navigation bar with icons and a copyright.
+ */
+
 const VerticaNav = () => {
   return (
     <nav className="sidebar">

@@ -10,3 +10,13 @@
     }
   }
 }
+
+.label-score-wrapper {
+  position: relative;
+  @include center-column;
+  top: -82px;
+
+  .label-score {
+    margin-bottom: 6px;
+  }
+}
