@@ -4,7 +4,7 @@ import { LineChart, Line, XAxis, Tooltip } from "recharts";
 
 /**
  * A component for set the size of the chart based on the window size.
- * @returns {number} The width of the chart is 835px if window width is > 1318px, otherwise 710px.
+ * @returns {number} The width of the chart is 258px if window width is > 1318px, otherwise 240px.
  */
 export const CustomSizeLineChart = () => {
   const breakpoint = 1318;
