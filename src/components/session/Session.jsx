@@ -1,5 +1,27 @@
+import React, { useState, useEffect } from "react";
 import { formatSessions } from "../../services/formatDatas";
 import { LineChart, Line, XAxis, Tooltip } from "recharts";
+
+/**
+ * A component for set the size of the chart based on the window size.
+ * @returns {number} The width of the chart is 835px if window width is > 1318px, otherwise 710px.
+ */
+export const CustomSizeLineChart = () => {
+  const breakpoint = 1318;
+  const [chartWidth, setChartWidth] = useState(
+    window.innerWidth > breakpoint ? 258 : 240
+  );
+  useEffect(() => {
+    const changeSize = () => {
+      setChartWidth(window.innerWidth > breakpoint ? 258 : 240);
+    };
+    window.addEventListener("resize", changeSize);
+    return () => {
+      window.removeEventListener("resize", changeSize);
+    };
+  }, []);
+  return chartWidth;
+};
 
 /**
  * The component create a custom cursor for the session chart
@@ -12,14 +34,17 @@ import { LineChart, Line, XAxis, Tooltip } from "recharts";
 
 export const CustomCursor = (props) => {
   const { points, payloadIndex } = props;
-  const customXpoint = [250, 293, 336, 378, 422, 465, 550];
+  //for fix the problem of 2 lignes we find custom x points, same for breakup
+  const xPoint = [250, 293, 336, 378, 422, 465, 550];
+  const xPointBreak = [250, 290, 330, 370, 410, 450, 550];
   const { y } = points[0];
+  const chartWidth = CustomSizeLineChart();
 
   return (
     <line
-      x1={customXpoint[payloadIndex]}
+      x1={chartWidth === 258 ? xPoint[payloadIndex] : xPointBreak[payloadIndex]}
       y1={0}
-      x2={customXpoint[payloadIndex]}
+      x2={chartWidth === 258 ? xPoint[payloadIndex] : xPointBreak[payloadIndex]}
       y2={y + 248}
       stroke="#000000"
       strokeWidth={500}
@@ -41,7 +66,7 @@ const Session = ({ data }) => {
   return (
     <>
       <LineChart
-        width={258}
+        width={CustomSizeLineChart()}
         height={263}
         data={formatSessions(data)}
         style={{
@@ -52,6 +77,7 @@ const Session = ({ data }) => {
           top: 77,
           bottom: 20,
         }}
+        className="linechart-graph"
       >
         <defs>
           <linearGradient id="linGradient" x1="0" x2="1">

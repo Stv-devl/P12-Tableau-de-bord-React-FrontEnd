@@ -1,5 +1,8 @@
 .dashboard {
-  padding: 65px 0 0 6%;
+  padding: 5% 0 0 6%;
+  @media screen and (max-width: $breakup) {
+    padding-left: 18px;
+  }
 
   .user_container {
     @include direction-column;
@@ -10,6 +13,12 @@
   .chart-container {
     @include direction-row;
     gap: 2%;
+    @media screen and (max-width: $breakup) {
+      gap: 1.5%;
+    }
+    @media screen and (max-width: $breakTablette) {
+      display: block;
+    }
 
     .chart-wrapper {
       @include direction-column;
@@ -18,11 +27,19 @@
       .chart-down {
         @include center-row-align;
         gap: 30px;
+        @media screen and (max-width: $breakup) {
+          gap: 25px;
+        }
       }
     }
     .macronutrient_container {
       @include direction-column;
       gap: 39px;
+      @media screen and (max-width: $breakTablette) {
+        @include direction-row;
+        margin-top: 25px;
+        gap: 16px;
+      }
     }
   }
 }

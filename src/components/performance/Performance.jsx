@@ -32,6 +32,7 @@ const Performance = ({ data }) => {
         backgroundColor: "#282D30",
         borderRadius: 5,
       }}
+      className="radarchart-graph"
     >
       {/*custom polygon SVG*/}
       <path

@@ -1,32 +1,39 @@
-.activityTooltip {
-  padding: 0 !important;
+.barchart-graph {
+  position: relative;
+  /*@media screen and (max-width: $breakup) {
+    width: 710px !important;
+  }*/
+  .activityTooltip {
+    padding: 0 !important;
 
-  .recharts-tooltip-item-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    .recharts-tooltip-item-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
   }
-}
+  .activity-legend-wrapper {
+    @include space-between-row;
+    width: 770px;
+    @media screen and (max-width: $breakup) {
+      width: 640px !important;
+    }
+    .recharts-activity-legend {
+      @include direction-row;
+      gap: 32px;
 
-.activity-legend-wrapper {
-  @include space-between-row;
+      .value-wrapper {
+        @include center-row-align;
+        gap: 12px;
 
-  .recharts-activity-legend {
-    @include direction-row;
-    gap: 32px;
-
-    .value-wrapper {
-      @include center-row-align;
-
-      gap: 12px;
-
-      .legend-icon {
-        display: block;
-        width: 10px;
-        height: 10px;
-        border-radius: 100%;
+        .legend-icon {
+          display: block;
+          width: 10px;
+          height: 10px;
+          border-radius: 100%;
+        }
       }
     }
   }

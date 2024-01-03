@@ -1,7 +1,11 @@
 .horizontale-nav {
   @include space-between-row-center;
+  position: fixed;
+  z-index: 3;
   background-color: $black;
   padding: 0 6% 0 1%;
+  width: 100%;
+  max-width: 1650px;
   height: 91px;
 
   .logo-wrapper {
@@ -12,10 +16,8 @@
       width: 58px;
     }
   }
-
   .active {
     transition: 0.4s ease-in-out;
-
     &:hover {
       color: $textRed;
     }

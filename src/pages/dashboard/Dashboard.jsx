@@ -43,10 +43,7 @@ const Dashboard = () => {
               </div>
               <div className="chart-container">
                 <div className="chart-wrapper">
-                  <div
-                    style={{ width: "834px", height: "320px" }}
-                    className="activity_container"
-                  >
+                  <div className="activity_container">
                     <Activity data={activity} />
                   </div>
                   <div className="chart-down">

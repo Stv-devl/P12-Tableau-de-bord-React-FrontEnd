@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { formatActivity } from "../../services/formatDatas";
 import {
   BarChart,
   Bar,
@@ -8,7 +9,30 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-import { formatActivity } from "../../services/formatDatas";
+
+/**
+ * A component for set the size of the chart based on the window size.
+ * @returns {number} The width of the chart is 835px if window width is > 1318px, otherwise 710px.
+ */
+export const CustomSize = () => {
+  const breakpoint = 1318;
+  const [chartWidth, setChartWidth] = useState(
+    window.innerWidth > breakpoint ? 835 : 710
+  );
+
+  useEffect(() => {
+    const changeSize = () => {
+      setChartWidth(window.innerWidth > breakpoint ? 835 : 710);
+    };
+
+    window.addEventListener("resize", changeSize);
+
+    return () => {
+      window.removeEventListener("resize", changeSize);
+    };
+  }, []);
+  return chartWidth;
+};
 
 /**
  * The component create a custom legend for the activity chart.
@@ -59,7 +83,8 @@ const Activity = ({ data }) => {
   return (
     <>
       <BarChart
-        width={835}
+        className="barchart-graph"
+        width={CustomSize()}
         height={320}
         data={formatActivity(data)}
         margin={{

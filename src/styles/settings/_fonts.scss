@@ -46,11 +46,6 @@ h2 {
   color: $white;
 }
 
-.chart-result {
-  font-size: 20px;
-  color: $textBlack;
-}
-
 .title-activity {
   color: $textLightBlack;
 }
@@ -59,9 +54,6 @@ h2 {
 .chart-description {
   font-size: 14px;
   color: $textDarkGrey;
-  &::first-letter {
-    text-transform: uppercase;
-  }
 }
 
 .chart-scale {
@@ -82,6 +74,9 @@ h2 {
 .chart-result {
   font-size: 26px;
   color: $textBlack;
+  @media screen and (max-width: $breakup) {
+    font-size: 20px;
+  }
 }
 
 .chart-objectif {

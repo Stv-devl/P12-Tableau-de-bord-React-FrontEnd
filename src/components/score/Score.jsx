@@ -14,7 +14,9 @@ export const CustomScoreLegend = (props) => {
   return (
     <>
       <div className="label-score-wrapper">
-        <div className="label-score">{payload && payload[0].payload.score}</div>
+        <div className="label-score">
+          {`${payload && payload[0].payload.score}%`}
+        </div>
         <p className="label-score-text">
           de votre <br />
           objectif
@@ -55,11 +57,15 @@ const Score = ({ data }) => {
           backgroundColor: "rgb(251 251 251)",
           borderRadius: 5,
         }}
+        className="radialbarchart-graph"
       >
         <circle cx="50%" cy="50%" r="80" fill="#FFF" />
 
         <PolarAngleAxis type="number" domain={[0, 80]} tick={false} />
-        <Legend content={<CustomScoreLegend />} />
+        <Legend
+          content={<CustomScoreLegend />}
+          wrapperStyle={{ left: "40%", top: "38%" }}
+        />
 
         <RadialBar
           minAngle={15}

@@ -1,22 +1,29 @@
-.sessionTooltip {
-  padding: 0 !important;
+.linechart-graph {
+  position: relative;
+  @media screen and (max-width: $breakup) {
+    width: 220px !important;
+    height: 243px !important;
+  }
+  .sessionTooltip {
+    padding: 0 !important;
 
-  .recharts-tooltip-item-list {
-    display: flex;
-    justify-content: center;
+    .recharts-tooltip-item-list {
+      display: flex;
+      justify-content: center;
 
-    .recharts-tooltip-item {
-      padding: 0 !important;
+      .recharts-tooltip-item {
+        padding: 0 !important;
+      }
     }
   }
-}
 
-.label-score-wrapper {
-  position: relative;
-  @include center-column;
-  top: -82px;
+  .label-score-wrapper {
+    position: relative;
+    @include center-column;
+    top: -82px;
 
-  .label-score {
-    margin-bottom: 6px;
+    .label-score {
+      margin-bottom: 6px;
+    }
   }
 }

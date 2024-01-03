@@ -1,0 +1,7 @@
+.radarchart-graph {
+  position: relative;
+  @media screen and (max-width: $breakup) {
+    width: 220px !important;
+    height: 243px !important;
+  }
+}
