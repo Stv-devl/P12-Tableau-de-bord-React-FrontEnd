@@ -24,7 +24,7 @@ const Dashboard = () => {
 
   return (
     <>
-      {error ? (
+      {error === null ? (
         useMockdata === "false" && (
           <div className="error-container">
             <Error />
