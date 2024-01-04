@@ -86,4 +86,4 @@ yarn start
 ## Author
 
 - Github - [Stv-devl](https://github.com/Stv-devl/)
-- Link to the app - [sportSee](https://p12-sportsee-stev.netlify.app/home)
+- Link to the app (working with mockedData) - [sportSee](https://p12-sportsee-stev.netlify.app/home)
