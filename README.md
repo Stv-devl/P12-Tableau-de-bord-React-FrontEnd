@@ -62,6 +62,12 @@ Installer Sass :
 yarn add sass
 ```
 
+Installer Recharts :
+
+```bash
+yarn add recharts
+```
+
 Lancer le FrontEnd :
 
 ```bash

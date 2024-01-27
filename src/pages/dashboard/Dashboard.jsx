@@ -24,12 +24,10 @@ const Dashboard = () => {
 
   return (
     <>
-      {error === null ? (
-        useMockdata === "false" && (
-          <div className="error-container">
-            <Error />
-          </div>
-        )
+      {error !== null && useMockdata === "false" ? (
+        <div className="error-container">
+          <Error />
+        </div>
       ) : (
         <main>
           {loading ? (
