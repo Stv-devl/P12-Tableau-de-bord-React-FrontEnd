@@ -13,6 +13,7 @@ import Error from "../error/Error";
  * This component is use for activate components : User, Activity, Performance, Session, Score, and Macronutrient from the dashboard
  * We Fetches 'data', 'loading' & 'error' with the user Id we get from the URL params.
  * @returns {JSX.Element} - The main dashboard layout containing different components for displaying the dashboard
+
  */
 
 const Dashboard = () => {
@@ -21,10 +22,12 @@ const Dashboard = () => {
   const { user, activity, performance, sessions } = data;
 
   const useMockdata = process.env.REACT_APP_USE_MOCK_DATA;
-
+  const filterUser = user && user[0].id === Number(id);
+  //if filterUser = false & loading = false launch error page
   return (
     <>
-      {error !== null && useMockdata === "false" ? (
+      {(error !== null && useMockdata === "false") ||
+      (!filterUser && !loading) ? (
         <div className="error-container">
           <Error />
         </div>
