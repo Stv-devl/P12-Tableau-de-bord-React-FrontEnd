@@ -1,7 +1,6 @@
 /**
  * This class formats data for display in the composants
  * @param {Object} data - The initial data object.
-
  */
 
 export class DataModel {
