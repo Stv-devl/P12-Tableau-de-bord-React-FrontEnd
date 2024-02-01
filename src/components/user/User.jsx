@@ -1,5 +1,4 @@
 import React from "react";
-import { formatUser } from "../../services/formatDatas";
 
 /**
  * The component is a greeting to users when they acces to the dashboard
@@ -12,7 +11,7 @@ const User = ({ data }) => {
   return (
     <>
       <h1>
-        Bonjour <span className="h1-red">{formatUser(data)}</span>
+        Bonjour <span className="h1-red">{data}</span>
       </h1>
       <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
     </>

@@ -7,9 +7,11 @@ import React from "react";
 
 const Loader = () => {
   return (
-    <>
-      <span className="loader"></span>
-    </>
+    <main>
+      <div className="loader-container">
+        <span className="loader"></span>
+      </div>
+    </main>
   );
 };
 

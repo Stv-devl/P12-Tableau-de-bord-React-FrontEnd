@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { formatActivity } from "../../services/formatDatas";
+
 import {
   BarChart,
   Bar,
@@ -19,14 +19,11 @@ export const CustomSize = () => {
   const [chartWidth, setChartWidth] = useState(
     window.innerWidth > breakpoint ? 835 : 710
   );
-
   useEffect(() => {
     const changeSize = () => {
       setChartWidth(window.innerWidth > breakpoint ? 835 : 710);
     };
-
     window.addEventListener("resize", changeSize);
-
     return () => {
       window.removeEventListener("resize", changeSize);
     };
@@ -86,7 +83,7 @@ const Activity = ({ data }) => {
         className="barchart-graph"
         width={CustomSize()}
         height={320}
-        data={formatActivity(data)}
+        data={data}
         margin={{
           top: 112,
           right: 31,

@@ -1,5 +1,4 @@
 import { RadialBarChart, RadialBar, PolarAngleAxis, Legend } from "recharts";
-import { formatScore } from "../../services/formatDatas";
 
 /**
  * This component create a custom legend for the score chart
@@ -49,7 +48,7 @@ const Score = ({ data }) => {
         data={[
           {
             name: "Score",
-            score: formatScore(data),
+            score: data,
             fill: "#FF0000",
           },
         ]}

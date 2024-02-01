@@ -1,5 +1,4 @@
 import React from "react";
-import { formatNutrient } from "../../services/formatDatas";
 
 /**
  * The component containing 4 cards who displaying the amount of each macronutrient.
@@ -13,7 +12,7 @@ import { formatNutrient } from "../../services/formatDatas";
 const Macronutrient = ({ data }) => {
   return (
     <>
-      {formatNutrient(data).map(({ names, number }) => (
+      {data.map(({ names, number }) => (
         <div key={names} className={`nutrient-cart`}>
           <img
             src={`../${names}-icon.png`}

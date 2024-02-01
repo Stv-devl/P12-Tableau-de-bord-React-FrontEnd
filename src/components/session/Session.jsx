@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { formatSessions } from "../../services/formatDatas";
 import { LineChart, Line, XAxis, Tooltip } from "recharts";
 
 /**
@@ -68,7 +67,7 @@ const Session = ({ data }) => {
       <LineChart
         width={CustomSizeLineChart()}
         height={263}
-        data={formatSessions(data)}
+        data={data}
         style={{
           backgroundColor: "#FF0000",
           borderRadius: 5,

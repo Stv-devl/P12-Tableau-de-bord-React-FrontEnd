@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import useManageApi from "../../hook/useManageApi";
+import { DataModel } from "../../services/formatDatas";
 import User from "../../components/user/User";
 import Activity from "../../components/activity/Activity";
 import Performance from "../../components/performance/Performance";
@@ -19,53 +20,61 @@ import Error from "../error/Error";
 const Dashboard = () => {
   const { id } = useParams();
   const { data, loading, error } = useManageApi(id);
-  const { user, activity, performance, sessions } = data;
+
+  const dataModel = new DataModel(data);
+  const {
+    formatData,
+    formatFirstName,
+    formatActivity,
+    formatPerformance,
+    formatSession,
+    formatScore,
+    formatNutrient,
+  } = dataModel.models;
 
   const useMockdata = process.env.REACT_APP_USE_MOCK_DATA;
-  const filterUser = user && user[0].id === Number(id);
-  //if filterUser = false & loading = false launch error page
+  const filterUser = formatData.user && formatData.user[0].id === Number(id);
+
   return (
     <>
       {(error !== null && useMockdata === "false") ||
       (!filterUser && !loading) ? (
-        <div className="error-container">
-          <Error />
-        </div>
+        <Error />
       ) : (
-        <main>
+        <>
           {loading ? (
-            <div className="loader-container">
-              <Loader />
-            </div>
+            <Loader />
           ) : (
-            <div className="dashboard">
-              <div className="user_container">
-                <User data={user} />
-              </div>
-              <div className="chart-container">
-                <div className="chart-wrapper">
-                  <div className="activity_container">
-                    <Activity data={activity} />
+            <main>
+              <div className="dashboard">
+                <div className="user_container">
+                  <User data={formatFirstName} />
+                </div>
+                <div className="chart-container">
+                  <div className="chart-wrapper">
+                    <div className="activity_container">
+                      <Activity data={formatActivity} />
+                    </div>
+                    <div className="chart-down">
+                      <div className="sessions-container">
+                        <Session data={formatSession} />
+                      </div>
+                      <div className="performance_container">
+                        <Performance data={formatPerformance} />
+                      </div>
+                      <div className="score_container">
+                        <Score data={formatScore} />
+                      </div>
+                    </div>
                   </div>
-                  <div className="chart-down">
-                    <div className="sessions-container">
-                      <Session data={sessions} />
-                    </div>
-                    <div className="performance_container">
-                      <Performance data={performance} />
-                    </div>
-                    <div className="score_container">
-                      <Score data={user} />
-                    </div>
+                  <div className="macronutrient_container">
+                    <Macronutrient data={formatNutrient} />
                   </div>
                 </div>
-                <div className="macronutrient_container">
-                  <Macronutrient data={user} />
-                </div>
               </div>
-            </div>
+            </main>
           )}
-        </main>
+        </>
       )}
     </>
   );

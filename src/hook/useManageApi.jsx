@@ -21,7 +21,6 @@ function useManageApi(userId) {
     const fetchData = async () => {
       try {
         setLoading(true);
-        /* await new Promise((resolve) => setTimeout(resolve, 2000));*/
         const resData = await getDatas(userId);
         setData(resData);
       } catch (err) {
@@ -35,6 +34,7 @@ function useManageApi(userId) {
 
     fetchData();
   }, [userId]);
+
   return { data, loading, error };
 }
 

@@ -14,6 +14,7 @@ async function getDatas(userId) {
 
   try {
     const request = endUrl.map((url) => axios.get(baseUrl + url));
+
     const [user, activity, sessions, performance] = await Promise.all(request);
 
     return {

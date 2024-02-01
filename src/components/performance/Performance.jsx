@@ -6,7 +6,6 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
 } from "recharts";
-import { formatPerformance } from "../../services/formatDatas";
 
 /**
  * The component is a Radar Chart using recharts library and displaying the 'performance' datas.
@@ -18,7 +17,7 @@ import { formatPerformance } from "../../services/formatDatas";
  */
 
 const Performance = ({ data }) => {
-  const formattedData = formatPerformance(data).reverse();
+  const formattedData = [...data].reverse();
 
   return (
     <RadarChart

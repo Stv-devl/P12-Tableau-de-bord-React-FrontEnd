@@ -6,16 +6,12 @@ import React from "react";
  */
 const Error = () => {
   return (
-    <>
-      <main>
-        <div className="error-container">
-          <h1 className="error">404</h1>
-          <h2 className="oups">
-            Oups! La page que vous demandez n'existe pas.
-          </h2>
-        </div>
-      </main>
-    </>
+    <main>
+      <div className="error-container">
+        <h1 className="error">404</h1>
+        <h2 className="oups">Oups! La page que vous demandez n'existe pas.</h2>
+      </div>
+    </main>
   );
 };
 
